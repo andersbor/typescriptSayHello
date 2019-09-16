@@ -1,12 +1,9 @@
-interface Person {
-    firstName: string;
-    lastName: string;
-}
+let inputElement: HTMLInputElement = <HTMLInputElement>document.getElementById("inputField");
+let buttonElement: HTMLButtonElement = <HTMLButtonElement>document.getElementById("button");
+buttonElement.addEventListener("click", sayHello);
 
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
+function sayHello(): void {
+    let name: string = inputElement.value;
+    let outputField: HTMLDivElement = <HTMLDivElement>document.getElementById("outputField");
+    outputField.innerHTML = "Hello " + name;
 }
-let user: Person = { firstName: "John", lastName: "Doe" };
-
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
